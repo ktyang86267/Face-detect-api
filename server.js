@@ -116,10 +116,6 @@ app.put('/image', (req, res) => {
     .catch(error => res.status(400).json('unable to get entry count'));
 });
 
-app.listen(3000, () => {
-  console.log('App is running on port 3000!!');
-});
-
 //imageURL
 app.post('/imageurl', (req, res) => {
   clarifaiApp.models
@@ -130,6 +126,9 @@ app.post('/imageurl', (req, res) => {
     .catch(err => res.status(400).json('unable to work on API'));
 });
 
+app.listen(process.env.PORT || 3000, () => {
+  console.log('App is running on port 3000!!');
+});
 
 /*
 API design
