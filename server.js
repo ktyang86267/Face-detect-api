@@ -3,7 +3,7 @@ const bodyParse = require('body-parser');
 const cors = require('cors');
 const knex = require('knex');
 const bcrypt = require('bcrypt-nodejs');
-const clarifai = require('clarifai');
+const Clarifai = require('clarifai');
 
 const clarifaiApp = new Clarifai.App({
   apiKey: '0f5d94ec2a7b4c7092919d4b135469fa'
@@ -12,10 +12,8 @@ const clarifaiApp = new Clarifai.App({
 const db = knex({
   client: 'pg',
   connection: {
-    host : '127.0.0.1',
-    user : 'aaronyang',
-    password : '',
-    database : 'face-detect'
+    host : process.env.DATABASE_URL,
+    ssl: true
   }
 });
 
