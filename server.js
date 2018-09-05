@@ -25,7 +25,7 @@ app.use(cors());
 
 //root
 app.get('/', (req, res) => {
-  res.send(database.users);
+  res.send('It is working');
 });
 
 //main
